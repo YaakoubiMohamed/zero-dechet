@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
 const db = require('./index.js');
+const Categorie = require("./Categorie.js");
 const sequelize = db.sequelize;
 
 const Produit = sequelize.define('produit',{
@@ -9,8 +10,11 @@ const Produit = sequelize.define('produit',{
         autoIncrement: true,
         primaryKey: true,
     },
-
     nom:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    photo:{
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -36,6 +40,14 @@ const Produit = sequelize.define('produit',{
     condition:{
         type: DataTypes.ENUM(['Nouveau','Utiliser']),
         allowNull: false,
+    },
+    categorieId: {
+        type: DataTypes.INTEGER,
+        allowNull: false, // Assuming a product must have a category
+        references: {
+            model: Categorie, // This references the 'Categorie' model
+            key: 'id'
+        }
     }
 
 });

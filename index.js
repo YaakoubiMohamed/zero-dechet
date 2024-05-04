@@ -12,8 +12,10 @@ const PORT = 5000;
 app.use(bodyParser.json());
 
 const categorieRoutes = require('./src/routes/CategorieRoutes');
+const produitRoutes = require('./src/routes/ProduitRoutes.js');
 
 app.use('/api', categorieRoutes);
+app.use('/api', produitRoutes);
 
 sequelize.authenticate()
 .then(()=>{

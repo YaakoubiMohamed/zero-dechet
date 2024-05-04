@@ -36,4 +36,3 @@ Produit.belongsTo(User);
 sequelize.sync({ force: false });
 
 
-
