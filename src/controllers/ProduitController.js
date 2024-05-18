@@ -27,11 +27,13 @@ exports.createProduit = async (req, res) => {
             return res.status(500).json({ message: 'Error during image upload!' });
           }
         }
-  
+
+
+
         const {nom,prix,marque,quantite,description,condition,categorieId} = req.body;
         const photo = req.file ? req.file.path : undefined; // Store path only if uploaded
         console.log(photo);
-        const produit = await Produit.create({ nom,photo,prix,marque,quantite,description,condition,categorieId });
+        const produit = await Produit.create({ nom,prix,marque,quantite,description,condition,categorieId });
         console.log(produit);
         res.status(201).json({ message: "Produit créé avec succès", produit });
       });
@@ -49,4 +51,3 @@ exports.getAllProduits = async (req, res) => {
         res.status(500).json({ message: "Une erreur est survenue lors de la récupération des produits", error });
     }
 };
-

@@ -1,7 +1,7 @@
 const express = require('express');
-const bofyparser = require('body-parser');
 const db = require('./src/models/index');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const sequelize = db.sequelize;
 
@@ -10,6 +10,7 @@ const app = express();
 const PORT = 5000;
 
 app.use(bodyParser.json());
+app.use(cors());
 
 const categorieRoutes = require('./src/routes/CategorieRoutes');
 const produitRoutes = require('./src/routes/ProduitRoutes.js');

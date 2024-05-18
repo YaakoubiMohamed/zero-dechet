@@ -4,6 +4,7 @@ const db = require('./index.js');
 const Categorie = require("./Categorie.js");
 const sequelize = db.sequelize;
 
+
 const Produit = sequelize.define('produit',{
     id:{
         type: DataTypes.INTEGER,
@@ -16,7 +17,7 @@ const Produit = sequelize.define('produit',{
     },
     photo:{
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     prix:{
         type: DataTypes.FLOAT,
