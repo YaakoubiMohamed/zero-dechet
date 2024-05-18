@@ -42,8 +42,7 @@ exports.createProduit = async (req, res) => {
 };
 
 exports.getAllProduits = async (req, res) => {
-    try {
-       
+    try {      
         const produits = await Produit.findAll();
         res.json({ message: "Produits récupérés", produits }); 
     } catch (error) {
